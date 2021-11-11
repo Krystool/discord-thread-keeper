@@ -23,11 +23,17 @@ client.on('ready', () => {
     main()
 })
 
-async function main() {
+export async function main() {
     let parent = (await client.channels.fetch('904838634950258770')) as GuildChannel;
     if (parent.isText()) {
-        let thread = await parent.threads.fetch('907971826926362655') as ThreadChannel
-        thread.setArchived(false);
+        if (BOT.THREADS.length == 0) {
+            console.log('Nothing to unarchive')
+            return
+        }
+        for (var i = 0; i < BOT.THREADS.length; i++) {
+            let thread = await parent.threads.fetch(BOT.THREADS[i]) as ThreadChannel
+            thread.setArchived(false);
+        }
     } else {
         throw `Something went wrong!'`;
     }
