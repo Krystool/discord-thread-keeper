@@ -1,7 +1,6 @@
 import DiscordJS, { Intents, TextChannel, ThreadChannel, GuildChannel } from 'discord.js'
 import WOKCommands from 'wokcommands'
 import path from 'path'
-
 import { BOT } from './config'
 
 const client = new DiscordJS.Client({
@@ -24,7 +23,7 @@ client.on('ready', () => {
 })
 
 export async function main() {
-    let parent = (await client.channels.fetch('904838634950258770')) as GuildChannel;
+    let parent = (await client.channels.fetch(BOT.SERVER_CHANNEL)) as GuildChannel;
     if (parent.isText()) {
         if (BOT.THREADS.length == 0) {
             console.log('Nothing to unarchive')

@@ -8,7 +8,7 @@ export default {
     description: 'Forces unarchiving of all threads',
     slash: true,
     testOnly: true,
-    callback: ({interaction, args}) => {
+    callback: ({interaction}) => {
        main()
        return interaction.reply('All threads have been force unarchived.')
     }
