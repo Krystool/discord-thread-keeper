@@ -23,7 +23,9 @@ client.on('ready', () => {
 })
 
 export async function main() {
-    let parent = (await client.channels.fetch(BOT.SERVER_CHANNEL)) as GuildChannel;
+    let parent = (await client.channels.fetch(BOT.SERVER_CHANNEL)) as GuildChannel; //for some reason having any random channel on the server as the parent for any thread
+                                                                                    //still works for unarchiving any thread on the server. I have no idea how, but here it will
+                                                                                    //stay.
     if (parent.isText()) {
         if (BOT.THREADS.length == 0) {
             console.log('Nothing to unarchive')
@@ -34,7 +36,7 @@ export async function main() {
             thread.setArchived(false);
         }
     } else {
-        throw `Something went wrong!'`;
+        throw `Something went wrong! (SERVER_CHANNEL in config is probably a non-text channel)'`;
     }
 }
 

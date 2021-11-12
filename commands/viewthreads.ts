@@ -4,7 +4,7 @@ import { BOT } from '../config'
 
 export default {
     category: 'Testing',
-    description: 'Views all threads this bot is maintaining',
+    description: 'Views all threads this bot is keeping',
     slash: true,
     testOnly: true,
     callback: ({interaction}) => {

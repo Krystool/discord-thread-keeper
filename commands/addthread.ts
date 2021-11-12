@@ -10,7 +10,7 @@ export default {
     options: [
         {
             name: 'thread',
-            description: 'The thread to maintain',
+            description: 'The thread to keep',
             required: true,
             type: DiscordJS.Constants.ApplicationCommandOptionTypes.CHANNEL,
         }
@@ -20,7 +20,7 @@ export default {
         array.push(args[0])
         BOT.THREADS = array
         return interaction.reply({
-            content: `Now added this thread to the maintainer: ${args[0]}`,
+            content: `Now added this thread to the keeper: ${args[0]}`,
         });
     }
 } as ICommand
