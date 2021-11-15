@@ -23,5 +23,8 @@
     "dotenv": "^10.0.0",
     "nodemon": "^2.0.15",
     "wokcommands": "^1.5.3"
+  },
+  "devDependencies": {
+    "@types/cron": "^1.7.3"
   }
 }
