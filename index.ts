@@ -1,6 +1,7 @@
 import DiscordJS, { Intents, TextChannel, ThreadChannel, GuildChannel } from 'discord.js'
 import WOKCommands from 'wokcommands'
 import path from 'path'
+import * as cron from 'cron'
 import { BOT } from './config'
 
 const client = new DiscordJS.Client({
@@ -20,6 +21,9 @@ client.on('ready', () => {
     })
 
     main()
+
+    let job = new cron.CronJob('*/30 * * * *', main); //update every 30 min
+	job.start();
 })
 
 export async function main() {
@@ -28,8 +32,8 @@ export async function main() {
                                                                                     //stay.
     if (parent.isText()) {
         if (BOT.THREADS.length == 0) {
-            console.log('Nothing to unarchive')
-            return
+            console.log('Nothing to unarchive');
+            return;
         }
         for (var i = 0; i < BOT.THREADS.length; i++) {
             let thread = await parent.threads.fetch(BOT.THREADS[i]) as ThreadChannel
