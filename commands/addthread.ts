@@ -16,7 +16,7 @@ export default {
         }
     ],
     callback: ({interaction, args}) => {
-        var array = BOT.THREADS as any
+        let array = BOT.THREADS as any
         array.push(args[0])
         BOT.THREADS = array
         return interaction.reply({

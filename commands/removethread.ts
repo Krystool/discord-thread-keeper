@@ -16,7 +16,7 @@ export default {
         }
     ],
     callback: ({interaction, args}) => {
-        var array = BOT.THREADS as any
+        let array = BOT.THREADS as any
         array.splice(array.indexOf(args[0]), 1) //remove the element at this index
         BOT.THREADS = array
         return interaction.reply({

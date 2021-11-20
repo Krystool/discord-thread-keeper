@@ -35,7 +35,7 @@ export async function main() {
             console.log('Nothing to unarchive');
             return;
         }
-        for (var i = 0; i < BOT.THREADS.length; i++) {
+        for (let i = 0; i < BOT.THREADS.length; i++) {
             let thread = await parent.threads.fetch(BOT.THREADS[i]) as ThreadChannel
             thread.setArchived(false);
         }

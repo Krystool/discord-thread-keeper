@@ -8,8 +8,8 @@ export default {
     slash: true,
     testOnly: true,
     callback: ({interaction}) => {
-        var array = [] as any;
-        for (var i = 0; i < BOT.THREADS.length; i++) {
+        let array = [] as any;
+        for (let i = 0; i < BOT.THREADS.length; i++) {
             array.push(BOT.THREADS[i])
         }
         return interaction.reply({
