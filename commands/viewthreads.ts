@@ -1,7 +1,5 @@
-import DiscordJS from 'discord.js'
 import { ICommand } from "wokcommands";
 import { BOT } from '../config'
-import { getChannelName } from '../index';
 
 export default {
     category: 'Testing',
@@ -10,11 +8,18 @@ export default {
     testOnly: true,
     callback: async ({interaction}) => {
         let array = [] as any;
-        for (let i = 0; i < BOT.THREADS.length; i++) {
-            array.push(await getChannelName(BOT.THREADS[i]))
+        if (BOT.THREADS.length > 0) {
+            for (let i = 0; i < BOT.THREADS.length; i++) {
+                array.push(`<#${BOT.THREADS[i]}>`)
+            }
+            return interaction.reply({
+                content: `${array}`,
+            });
+        } else {
+            return interaction.reply({
+                content: `No threads are currently being tracked.`,
+            });
         }
-        return interaction.reply({
-            content: `${array}`,
-        });
+        
     }
 } as ICommand

@@ -44,14 +44,4 @@ export async function main() {
     }
 }
 
-export async function getChannelName(id:any) {
-    let parent = (await client.channels.fetch(BOT.SERVER_CHANNEL)) as GuildChannel;
-    if (parent.isText()) {
-        let thread = await parent.threads.fetch(id) as ThreadChannel
-        let name = thread.name as string;
-        return name;
-    }
-    return 'Error' as string
-}
-
 client.login(BOT.TOKEN)

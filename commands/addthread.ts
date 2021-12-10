@@ -1,7 +1,6 @@
 import DiscordJS from 'discord.js'
 import { ICommand } from "wokcommands";
 import { BOT } from '../config'
-import { getChannelName } from '../index';
 
 export default {
     category: 'Testing',
@@ -25,9 +24,8 @@ export default {
         } else {
             array.push(args[0])
             BOT.THREADS = array
-            let name = await getChannelName(args[0])
             return interaction.reply({
-                content: `Now added this thread to the keeper: ${name}`,
+                content: `Now added this thread to the keeper: <#${args[0]}>`,
             });
         }
         

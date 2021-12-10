@@ -20,7 +20,7 @@ export default {
         array.splice(array.indexOf(args[0]), 1) //remove the element at this index
         BOT.THREADS = array
         return interaction.reply({
-            content: `${args[0]} is no longer being maintained`,
+            content: `<#${args[0]}> is no longer being maintained`,
         });
     }
 } as ICommand
