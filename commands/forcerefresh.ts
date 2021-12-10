@@ -7,7 +7,7 @@ export default {
     slash: true,
     testOnly: true,
     callback: ({interaction}) => {
-       main()
-       return interaction.reply('All threads have been force unarchived.')
+        main()
+        return interaction.reply('All threads have been force unarchived.')
     }
 } as ICommand

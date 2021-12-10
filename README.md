@@ -5,20 +5,20 @@ The bot unarchives all threads it is tracking every 30 minutes.
 
 ## Commands
 ### /addthread [thread]
-Add a thread to keep alive
+Add a thread to keep alive. This can be the ID of a thread or a direct reference to the thread channel (e.g. by typing in # followed by the name).
 
-[thread]: The ID of a thread within the server
+[thread]: The ID or name of a thread within the server
 
 ### /removethread [thread]
-Stop keeping a specified thread alive
+Stop keeping a specified thread alive. This can be the ID of a thread or a direct reference to the thread channel (e.g. by typing in # followed by the name).
 
-[thread]: The ID of a thread within the server
+[thread]: The ID or name of a thread within the server
 
 ### /viewthreads
-View the list of thread IDs being tracked, will soon be updated to get the channel names
+View the list of threads being tracked.
 
 ### /forcerefresh
-Manually unarchive all tracked threads
+Manually unarchive all tracked threads.
 
 
 

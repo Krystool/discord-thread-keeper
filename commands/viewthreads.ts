@@ -1,4 +1,3 @@
-import DiscordJS from 'discord.js'
 import { ICommand } from "wokcommands";
 import { BOT } from '../config'
 
@@ -7,13 +6,20 @@ export default {
     description: 'Views all threads this bot is keeping',
     slash: true,
     testOnly: true,
-    callback: ({interaction}) => {
+    callback: async ({interaction}) => {
         let array = [] as any;
-        for (let i = 0; i < BOT.THREADS.length; i++) {
-            array.push(BOT.THREADS[i])
+        if (BOT.THREADS.length > 0) {
+            for (let i = 0; i < BOT.THREADS.length; i++) {
+                array.push(`<#${BOT.THREADS[i]}>`)
+            }
+            return interaction.reply({
+                content: `${array}`,
+            });
+        } else {
+            return interaction.reply({
+                content: `No threads are currently being tracked.`,
+            });
         }
-        return interaction.reply({
-            content: `${array}`,
-        });
+        
     }
 } as ICommand
